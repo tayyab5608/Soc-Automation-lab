@@ -1,0 +1,8 @@
+<!-- Add inside /var/ossec/etc/ossec.conf, before the closing </ossec_config> tag.
+     Replace the hook URL with your own Shuffle webhook URL. Never commit the real one. -->
+<integration>
+  <name>shuffle</name>
+  <hook_url>http://YOUR_SHUFFLE_IP:3001/api/v1/hooks/webhook_YOUR_HOOK_ID</hook_url>
+  <rule_id>100010</rule_id>
+  <alert_format>json</alert_format>
+</integration>

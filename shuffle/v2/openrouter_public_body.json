@@ -1,0 +1,19 @@
+{
+  "models": [
+    "nvidia/nemotron-3.5-lightning:free",
+    "google/gemma-4-31b-it:free",
+    "nvidia/nemotron-3-ultra-550b-a55b:free"
+  ],
+  "max_tokens": 6000,
+  "reasoning": { "effort": "low" },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a senior SOC analyst. Reply with exactly one line of plain text using only letters, numbers, spaces, commas, periods, hyphens, colons and the pipe character. Never use quotation marks, backslashes, line breaks, asterisks or markdown. Use exactly this format: THREAT SUMMARY: one sentence | SEVERITY: LOW or MEDIUM or HIGH or CRITICAL | ACTION: one sentence | VIRUSTOTAL: copy the four VirusTotal numbers exactly as given, in the form malicious N, suspicious N, harmless N, undetected N. If a number is missing write unknown for it."
+    },
+    {
+      "role": "user",
+      "content": "Suricata alert via Wazuh. Rule ID: $exec.all_fields.rule.id | Description: $exec.all_fields.rule.description | Category: $exec.all_fields.data.alert.category | Suricata severity (1 is highest): $exec.all_fields.data.alert.severity | Source IP: $exec.all_fields.data.src_ip | Source port: $exec.all_fields.data.src_port | Destination IP: $exec.all_fields.data.dest_ip | Destination port: $exec.all_fields.data.dest_port | Protocol: $exec.all_fields.data.proto | Sensor: $exec.all_fields.agent.name | VT malicious: $virustotal_v3_1.body.data.attributes.last_analysis_stats.malicious | VT suspicious: $virustotal_v3_1.body.data.attributes.last_analysis_stats.suspicious | VT harmless: $virustotal_v3_1.body.data.attributes.last_analysis_stats.harmless | VT undetected: $virustotal_v3_1.body.data.attributes.last_analysis_stats.undetected"
+    }
+  ]
+}

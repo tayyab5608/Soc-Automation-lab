@@ -1,0 +1,10 @@
+<!-- Add inside /var/ossec/etc/rules/local_rules.xml, then validate:
+     /var/ossec/bin/wazuh-analysisd -t
+     and restart wazuh-manager. -->
+<group name="local,suricata,">
+  <rule id="100010" level="10">
+    <if_sid>86601</if_sid>
+    <field name="alert.signature_id">^1000002$</field>
+    <description>Suricata: Internal port scan detected from $(src_ip) to $(dest_ip)</description>
+  </rule>
+</group>
