@@ -1,0 +1,22 @@
+{
+  "embeds": [
+    {
+      "title": "🚨 SOC ALERT: Internal Source Detected",
+      "color": 15105570,
+      "fields": [
+        { "name": "Rule ID", "value": "$exec.all_fields.rule.id", "inline": true },
+        { "name": "Wazuh Level", "value": "$exec.all_fields.rule.level", "inline": true },
+        { "name": "Suricata Severity", "value": "$exec.all_fields.data.alert.severity", "inline": true },
+        { "name": "Attacker IP (private)", "value": "$exec.all_fields.data.src_ip", "inline": true },
+        { "name": "Source Port", "value": "$exec.all_fields.data.src_port", "inline": true },
+        { "name": "Protocol", "value": "$exec.all_fields.data.proto", "inline": true },
+        { "name": "Target IP", "value": "$exec.all_fields.data.dest_ip", "inline": true },
+        { "name": "Target Port", "value": "$exec.all_fields.data.dest_port", "inline": true },
+        { "name": "Sensor", "value": "$exec.all_fields.agent.name", "inline": true },
+        { "name": "Description", "value": "$exec.all_fields.rule.description" },
+        { "name": "🤖 AI Threat Analysis", "value": "$openrouter_ai.body.choices.#0.message.content" }
+      ],
+      "footer": { "text": "Wazuh + Shuffle SOAR Automated Response" }
+    }
+  ]
+}

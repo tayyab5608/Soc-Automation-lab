@@ -1,0 +1,11 @@
+# Never commit secrets
+.env
+*.env
+*secret*
+*apikey*
+*webhook_url*
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+*.swp

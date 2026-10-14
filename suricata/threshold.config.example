@@ -1,0 +1,4 @@
+# Suricata alerted on Wazuh's own HTTP traffic to Shuffle (python-requests user agent),
+# which created a feedback loop of alerts about the alerting pipeline.
+# Suppress that signature for the Wazuh manager's address, then reload Suricata.
+suppress gen_id 1, sig_id 2017515, track by_src, ip YOUR_WAZUH_MANAGER_IP

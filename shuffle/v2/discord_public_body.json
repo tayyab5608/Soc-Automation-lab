@@ -1,0 +1,23 @@
+{
+  "username": "SOC Automation",
+  "embeds": [
+    {
+      "title": "🚨 SOC ALERT: External Source Detected",
+      "color": 15158332,
+      "fields": [
+        { "name": "Rule ID", "value": "$exec.all_fields.rule.id", "inline": true },
+        { "name": "Wazuh Level", "value": "$exec.all_fields.rule.level", "inline": true },
+        { "name": "Suricata Severity", "value": "$exec.all_fields.data.alert.severity", "inline": true },
+        { "name": "Attacker IP (public)", "value": "$exec.all_fields.data.src_ip", "inline": true },
+        { "name": "Source Port", "value": "$exec.all_fields.data.src_port", "inline": true },
+        { "name": "Protocol", "value": "$exec.all_fields.data.proto", "inline": true },
+        { "name": "Target IP", "value": "$exec.all_fields.data.dest_ip", "inline": true },
+        { "name": "Target Port", "value": "$exec.all_fields.data.dest_port", "inline": true },
+        { "name": "Sensor", "value": "$exec.all_fields.agent.name", "inline": true },
+        { "name": "Category", "value": "$exec.all_fields.data.alert.category" },
+        { "name": "🤖 AI Threat Analysis + VirusTotal", "value": "$http_1.body.choices.#0.message.content" }
+      ],
+      "footer": { "text": "Wazuh + Shuffle SOAR Automated Response" }
+    }
+  ]
+}
